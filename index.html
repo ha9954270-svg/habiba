@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXORA | Premium Marketplace</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="announcement">
+    ✨ Welcome to NEXORA — Free Shipping on Orders Over ৳3000
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="#" class="logo">NEX<span>ORA</span></a>
+
+    <div class="search-box">
+      <input id="searchInput" type="search"
+        placeholder="Search beauty, fashion, electronics...">
+      <button id="searchBtn"><i class="fa fa-search"></i></button>
+    </div>
+
+    <div class="header-actions">
+      <button onclick="showAccount()">
+        <i class="fa fa-user"></i><span>Account</span>
+      </button>
+
+      <button onclick="showWishlist()">
+        <i class="fa fa-heart"></i><span>Wishlist</span>
+        <b id="wishCount">0</b>
+      </button>
+
+      <button onclick="showCompare()">
+        <i class="fa fa-code-compare"></i><span>Compare</span>
+        <b id="compareCount">0</b>
+      </button>
+
+      <button onclick="showCart()">
+        <i class="fa fa-shopping-bag"></i><span>Cart</span>
+        <b id="cartCount">0</b>
+      </button>
+
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <a href="#">Home</a>
+
+    <div class="nav-dropdown">
+      <a href="#products">Beauty & Makeup <i class="fa fa-angle-down"></i></a>
+
+      <div class="mega-menu">
+        <div>
+          <h3>Makeup</h3>
+          <a href="#" onclick="filterCategory('Beauty')">Face Makeup</a>
+          <a href="#" onclick="filterCategory('Beauty')">Lipstick</a>
+          <a href="#" onclick="filterCategory('Beauty')">Eye Makeup</a>
+          <a href="#" onclick="filterCategory('Beauty')">Skincare</a>
+        </div>
+
+        <div>
+          <h3>Fashion</h3>
+          <a href="#" onclick="filterCategory('Dress')">Women's Dress</a>
+          <a href="#" onclick="filterCategory('Dress')">Men's Fashion</a>
+          <a href="#" onclick="filterCategory('Shoes')">Shoes</a>
+          <a href="#" onclick="filterCategory('Accessories')">Accessories</a>
+        </div>
+
+        <div>
+          <h3>Featured</h3>
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400" alt="Fashion">
+          <p>Discover latest collections</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#products">Shop</a>
+    <a href="#flash-sale">Flash Sale</a>
+    <a href="#stores">Stores</a>
+    <a href="#seller">Become a Seller</a>
+    <a href="#" onclick="showAdmin()">Admin</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">THE PREMIUM MARKETPLACE</span>
+      <h1>Discover Your<br>Perfect Style.</h1>
+      <p>Beauty, fashion, lifestyle and technology — all in one place.</p>
+      <a href="#products" class="primary-btn">Explore Collection</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900" alt="Fashion collection">
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div><i class="fa fa-truck"></i><h3>Fast Delivery</h3><p>Quick and reliable shipping.</p></div>
+    <div><i class="fa fa-shield"></i><h3>Secure Shopping</h3><p>Safe shopping experience.</p></div>
+    <div><i class="fa fa-store"></i><h3>Multiple Sellers</h3><p>Shop from different stores.</p></div>
+    <div><i class="fa fa-headset"></i><h3>Customer Support</h3><p>We're here to help.</p></div>
+  </section>
+
+  <!-- FLASH SALE -->
+  <section class="section" id="flash-sale">
+    <div class="flash-banner">
+      <div>
+        <span>LIMITED TIME OFFER</span>
+        <h2>Flash Sale 🔥</h2>
+        <p>Grab your favourite products before time runs out.</p>
+      </div>
+
+      <div class="countdown">
+        <div><strong id="hours">00</strong><span>Hours</span></div>
+        <div><strong id="minutes">00</strong><span>Minutes</span></div>
+        <div><strong id="seconds">00</strong><span>Seconds</span></div>
+      </div>
+    </div>
+
+    <div class="product-grid" id="flashProducts"></div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section">
+    <div class="section-heading">
+      <div><span>SHOP BY CATEGORY</span><h2>Explore Categories</h2></div>
+    </div>
+<option value="Beauty">Beauty & Makeup</option>
+<option value="Dress">Women's & Men's Dress</option>
+<option value="Home">Home Decor</option>
+<option value="Accessories">Jewellery & Accessories</option>
+<option value="Shoes">Shoes & Heels</option>v
+    <div class="categories">
+      <div class="category-card" onclick="filterCategory('Beauty')">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Beauty">
+        <h3>Beauty & Makeup</h3>
+      </div>
+
+      <div class="category-card" onclick="filterCategory('Dress')">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500" alt="Fashion">
+        <h3>Fashion & Dress</h3>
+      </div>
+
+      <div class="category-card" onclick="filterCategory('Shoes')">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Shoes">
+        <h3>Shoes</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section" id="products">
+    <div class="section-heading">
+      <div><span>OUR COLLECTION</span><h2>Trending Products</h2></div>
+    </div>
+
+<section class="admin-products">
+  <h2>Add New Product</h2>
+
+  <form id="productForm">
+
+    <input
+      type="text"
+      id="productName"
+      placeholder="Product Name"
+      required
+    >
+
+    <input
+      type="number"
+      id="productPrice"
+      placeholder="Product Price"
+      min="1"
+      required
+    >
+
+    <select id="productCategory" required>
+      <option value="">Select Category</option>
+      <option value="Dress">Dress</option>
+      <option value="Beauty">Beauty & Makeup</option>
+      <option value="Home">Home Decor</option>
+      <option value="Accessories">Accessories</option>
+      <option value="Shoes">Shoes</option>
+    </select>
+
+    <textarea
+      id="productDescription"
+      placeholder="Product Description"
+      required
+    ></textarea>
+
+    <label for="productImage">
+      Upload Product Image
+    </label>
+
+    <input
+      type="file"
+      id="productImage"
+      accept="image/*"
+      required
+    >
+
+    <img id="imagePreview"
+         alt="Image Preview"
+         style="display:none;width:150px;margin:10px 0;">
+
+    <button type="submit">Add Product</button>
+
+  </form>
+</section>
+
+<section class="products-section">
+  <h2>Our Products</h2>
+  <div id="productList" class="product-grid"></div>
+</section>
+
+<script src="script.js"></script>
+
+    <div class="filter-bar">
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option>Beauty</option>
+        <option>Dress</option>
+        <option>Electronics</option>
+        <option>Shoes</option>
+        <option>Accessories</option>
+        <option>Home</option>
+      </select>
+
+      <select id="priceFilter">
+        <option value="">All Prices</option>
+        <option value="1000">Under ৳1000</option>
+        <option value="2000">Under ৳2000</option>
+        <option value="5000">Under ৳5000</option>
+        <option value="20000">Under ৳20000</option>
+      </select>
+
+      <select id="sortProducts">
+        <option value="default">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+
+      <button class="reset-btn" onclick="resetFilters()">Reset</button>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- FEATURED STORES -->
+  <section class="section" id="stores">
+    <div class="section-heading">
+      <div><span>OUR SELLERS</span><h2>Featured Stores</h2></div>
+    </div>
+
+    <div class="store-grid" id="storeGrid"></div>
+  </section>
+
+  <!-- COUPON -->
+  <section class="coupon-section">
+    <div>
+      <span>EXCLUSIVE OFFER</span>
+      <h2>Get 10% OFF</h2>
+      <p>Use our special coupon at checkout.</p>
+    </div>
+
+    <div class="coupon-code">
+      <strong>SAVE10</strong>
+      <button onclick="copyCoupon()">Copy Code</button>
+    </div>
+  </section>
+
+  <!-- SELLER -->
+  <section class="seller-banner" id="seller">
+    <div>
+      <h2>Grow Your Business with NEXORA</h2>
+      <p>Join our marketplace and start selling your products.</p>
+    </div>
+    <button class="primary-btn" onclick="showSeller()">Seller Dashboard</button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="logo">NEX<span>ORA</span></a>
+        <p>Your premium destination for fashion, beauty and lifestyle.</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="#products">Products</a>
+        <a href="#stores">Stores</a>
+        <a href="#flash-sale">Flash Sale</a>
+      </div>
+
+      <div>
+        <h3>Customer Care</h3>
+        <a href="#">Contact</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Returns</a>
+      </div>
+
+      <div>
+        <h3>Marketplace</h3>
+        <a href="#seller">Become Seller</a>
+        <a href="#" onclick="showAdmin()">Admin Panel</a>
+      </div>
+    </div>
+
+    <div class="copyright">© 2026 NEXORA. All Rights Reserved.</div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
